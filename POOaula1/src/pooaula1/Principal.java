@@ -12,14 +12,15 @@ public class Principal {
 
     //método principal 
     public static void main(String[] args) {
-        //Criar objeto Pessoa;
-        Pessoa p = new Pessoa();
+        Pessoa p = null;
         //Criar o objeto Scanner para ler do teclado
         Scanner teclado = new Scanner(System.in);
         //Criar ArrayList para inserir cada Pessoa cadastrada
         ArrayList<Pessoa> pessoas = new ArrayList<>();
         //Ler a variável nome
         loop: do {
+            //Criar objeto Pessoa;
+            p = new Pessoa();
             System.out.println("Informe o nome: (Digite SAIR para finalizar)");
             p.nome = teclado.next();
             if (p.nome.equalsIgnoreCase("sair")) {
@@ -57,7 +58,7 @@ public class Principal {
         } while (true);
         
         for(Pessoa pp : pessoas){
-            System.out.println("nome = " + pp.nome);
+            System.out.println("pp.nome = " + pp.nome + "\npp.idade = " + pp.calcularIdade());
         }
         
         //Exibe a quantidade de pessoas cadastradas

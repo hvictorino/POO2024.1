@@ -32,9 +32,9 @@ public class Pessoa {
         return "Nome: " + nome + "\nIdade: " + calcularIdade();
     }
     
-    float CalcularMedia(ArrayList<Pessoa> p){
-        float media = 0;
-        float soma = 0;
+    double CalcularMedia(ArrayList<Pessoa> p){
+        double media = 0;
+        double soma = 0;
         for(int i = 0; i < p.size(); i++){
             soma += p.get(i).calcularIdade();
         }
