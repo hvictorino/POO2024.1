@@ -2,6 +2,7 @@ package pooaula1;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -15,6 +16,8 @@ public class Principal {
         Pessoa p = new Pessoa();
         //Criar o objeto Scanner para ler do teclado
         Scanner teclado = new Scanner(System.in);
+        //Criar ArrayList para inserir cada Pessoa cadastrada
+        ArrayList<Pessoa> pessoas = new ArrayList<>();
         //Ler a variável nome
         loop: do {
             System.out.println("Informe o nome: (Digite SAIR para finalizar)");
@@ -46,10 +49,23 @@ public class Principal {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } while (erro);
+            
+            System.out.println("adicionou no arraylist");
+            pessoas.add(p);
             //Imprimir os dados solicitados
             System.out.println(p.imprimir());
         } while (true);
         
+        for(Pessoa pp : pessoas){
+            System.out.println("nome = " + pp.nome);
+        }
+        
+        //Exibe a quantidade de pessoas cadastradas
+        System.out.println("Quantidade de pessoas cadastradas: " + pessoas.size());
+        System.out.println("Média das idades: " + p.CalcularMedia(pessoas));
+        Pessoa maisNovo = p.MaisNovo(pessoas);
+        System.out.println("A pessoa mais nova é " + maisNovo.nome + " com " + maisNovo.calcularIdade() + " anos.");
+        Pessoa maisVelho = p.MaisVelho(pessoas);
+        System.out.println("A pessoa mais velha é " + maisVelho.nome + " com " + maisVelho.calcularIdade() + " anos.");
     }
-    
 }
