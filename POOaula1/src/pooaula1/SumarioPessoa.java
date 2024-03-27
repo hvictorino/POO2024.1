@@ -12,13 +12,15 @@ public final class SumarioPessoa {
     SumarioPessoa(ArrayList<Pessoa> pessoas){
         //this.pessoas = pessoas;
         quantidade = pessoas.size();
-        media = CalcularMedia(pessoas);
-        nomeMaior = MaisVelho(pessoas).nome;
-        nomeMenor = MaisNovo(pessoas).nome;
-        idadeMaior = MaisVelho(pessoas).calcularIdade();
-        idadeMenor = MaisNovo(pessoas).calcularIdade();
-        percMenores = percMenor(pessoas);
-        percMaiores = percMaior(pessoas);
+        if(quantidade > 0){
+            media = CalcularMedia(pessoas);
+            nomeMaior = MaisVelho(pessoas).nome;
+            idadeMaior = MaisVelho(pessoas).calcularIdade();
+            nomeMenor = MaisNovo(pessoas).nome;
+            idadeMenor = MaisNovo(pessoas).calcularIdade();
+            percMenores = percMenor(pessoas);
+            percMaiores = percMaior(pessoas);
+        }
     }
     
     float CalcularMedia(ArrayList<Pessoa> p){
@@ -35,7 +37,6 @@ public final class SumarioPessoa {
     
     Pessoa MaisNovo(ArrayList<Pessoa> p){
         Pessoa pessoa = p.get(0);
-        
         for(int i = 1; i < p.size(); i++){
             if(p.get(i).calcularIdade() < pessoa.calcularIdade())
                 pessoa = p.get(i);
@@ -46,7 +47,6 @@ public final class SumarioPessoa {
     
     Pessoa MaisVelho(ArrayList<Pessoa> p){
         Pessoa pessoa = p.get(0);
-        
         for(int i = 1; i < p.size(); i++){
             if(p.get(i).calcularIdade() > pessoa.calcularIdade())
                 pessoa = p.get(i);
