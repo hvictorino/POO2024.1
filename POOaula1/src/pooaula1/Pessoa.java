@@ -1,7 +1,6 @@
 
 package pooaula1;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -30,40 +29,5 @@ public class Pessoa {
     
     String imprimir() {
         return "Nome: " + nome + "\nIdade: " + calcularIdade();
-    }
-    
-    double CalcularMedia(ArrayList<Pessoa> p){
-        double media = 0;
-        double soma = 0;
-        for(int i = 0; i < p.size(); i++){
-            soma += p.get(i).calcularIdade();
-        }
-        
-        if(p.size() > 0)
-            media = soma / p.size();
-        
-        return media;
-    }
-    
-    Pessoa MaisNovo(ArrayList<Pessoa> p){
-        Pessoa pessoa = p.get(0);
-        
-        for(int i = 1; i < p.size(); i++){
-            if(p.get(i).calcularIdade() < pessoa.calcularIdade())
-                pessoa = p.get(i);
-        }
-        
-        return pessoa;
-    }
-    
-    Pessoa MaisVelho(ArrayList<Pessoa> p){
-        Pessoa pessoa = p.get(0);
-        
-        for(int i = 1; i < p.size() - 1; i++){
-            if(p.get(i).calcularIdade() > pessoa.calcularIdade())
-                pessoa = p.get(i);
-        }
-        
-        return pessoa;
     }
 }

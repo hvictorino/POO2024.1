@@ -1,3 +1,4 @@
+
 package pooaula1;
 
 import java.text.ParseException;
@@ -51,22 +52,18 @@ public class Principal {
                 }
             } while (erro);
             
-            System.out.println("adicionou no arraylist");
             pessoas.add(p);
             //Imprimir os dados solicitados
             System.out.println(p.imprimir());
         } while (true);
-        
-        for(Pessoa pp : pessoas){
-            System.out.println("pp.nome = " + pp.nome + "\npp.idade = " + pp.calcularIdade());
-        }
+        SumarioPessoa sumario = new SumarioPessoa(pessoas);
         
         //Exibe a quantidade de pessoas cadastradas
-        System.out.println("Quantidade de pessoas cadastradas: " + pessoas.size());
-        System.out.println("Média das idades: " + p.CalcularMedia(pessoas));
-        Pessoa maisNovo = p.MaisNovo(pessoas);
-        System.out.println("A pessoa mais nova é " + maisNovo.nome + " com " + maisNovo.calcularIdade() + " anos.");
-        Pessoa maisVelho = p.MaisVelho(pessoas);
-        System.out.println("A pessoa mais velha é " + maisVelho.nome + " com " + maisVelho.calcularIdade() + " anos.");
+        System.out.println("Quantidade de pessoas cadastradas: " + sumario.quantidade);
+        System.out.println("Média das idades: " + sumario.media);
+        System.out.println("A pessoa mais nova é " + sumario.nomeMenor + " com " + sumario.idadeMenor + " anos.");
+        System.out.println("A pessoa mais velha é " + sumario.nomeMaior + " com " + sumario.idadeMaior + " anos.");
+        System.out.printf("Porcentagem de pessoas maiores de idade: %3.2f%%%n", sumario.percMaiores);
+        System.out.printf("Porcentagem de pessoas menores de idade: %3.2f%%%n", sumario.percMenores);
     }
 }
